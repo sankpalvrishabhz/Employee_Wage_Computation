@@ -1,8 +1,9 @@
 #!/bin/bash -x
-echo "Checking Employee Present or Absent"
+wagePerHour=20
+dayHour=8
 if [[ $((RANDOM%2)) -eq 1 ]]
 then
-echo "Employee is present"
+echo "Daily Wage="$(($wagePerHour*$dayHour))
 else
-echo "Employee is absent"
+echo "Daily Wage="0
 fi
