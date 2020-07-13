@@ -3,8 +3,12 @@ wagePerHr=20
 isFullTime=2
 isPartTime=1
 workingDays=20
-for(( day=1; day<=$workingDays; day++ ))
+MaxHrsInMonth=100
+totalHours=0
+totalWorkingDays=0
+while [[ $totalHours -lt $MaxHrsInMonth || $totalWorkingDays -lt $workingDays ]]
 do
+	((totalWorkingDays++))
 	var=$((RANDOM%3))
 	case "$var" in
 		$isFullTime)
@@ -17,7 +21,7 @@ do
 			dayHours=0
 			;;
 	esac
-	dailyWage=$(($dayHours*$wagePerHr))
-        totalWage=$(($totalWage+$dailyWage))
+	totalHours=$(($totalHours+$dayHours))
 done
-echo "Total Wage = " $totalWage
+totalWages=$(($totalHours*$wagePerHr))
+echo "Total Wage = " $totalWages
