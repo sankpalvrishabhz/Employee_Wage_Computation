@@ -1,9 +1,15 @@
 #!/bin/bash -x
 wagePerHour=20
-dayHour=8
-if [[ $((RANDOM%2)) -eq 1 ]]
+isPartTime=1
+isFullTime=2
+var=$((RANDOM%3))
+if [[ $var -eq $isFullTime ]]
 then
-echo "Daily Wage="$(($wagePerHour*$dayHour))
+	dayHours=8
+elif [[ $var -eq $isPartTime ]]
+then
+	dayHours=4
 else
-echo "Daily Wage="0
+	dayHours=0
 fi
+echo "Daily Wage="$(($wagePerHour*$dayHours))
