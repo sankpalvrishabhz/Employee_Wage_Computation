@@ -34,5 +34,6 @@ do
 	totalHours=$(($totalHours+$workHours))
 	DailyWage[$totalWorkingDays]="$( calculateDailyWage $workHours )"
 done
-echo "Total Wages="$(($totalHours*$wagePerHr))
+echo "Total Wage key= " ${!DailyWage[@]}
 echo "Total Wage = " ${DailyWage[@]}
+echo "Total Wages="$(($totalHours*$wagePerHr))
